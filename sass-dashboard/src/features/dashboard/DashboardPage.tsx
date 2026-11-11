@@ -54,10 +54,33 @@ export function DashboardPage() {
                 <StatCard title="New Leads" value={newLeadsCount}></StatCard>
                 <StatCard title="Appointments" value={3}></StatCard>
             </div>
+            <form
+                onSubmit={(event) => {
+                    event.preventDefault();
+                    handleAddLead();
+                }}
+            >
+                <label htmlFor="lead-name">Name</label>
+                <input
+                    id="lead-name"
+                    type="text"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                    required
+                />
+
+                <label htmlFor="lead-email">Email</label>
+                <input
+                    id="lead-email"
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    required
+                />
+
+                <button type="submit">Add Lead</button>
+            </form>
             <div>
-                <button type="button" onClick={handleAddLead}>
-                    Add sample lead
-                </button>
                 <label htmlFor="lead-search">Search leads</label>
                 <input 
                     id="lead-search"
